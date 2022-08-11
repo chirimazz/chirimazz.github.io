@@ -4,5 +4,6 @@ fetch(URL)
     .then(respuesta=>respuesta.json())
     .then(data=>{
         const div=document.querySelector("prod-list-container")
+        document.getElementById("prod-list-container").innerHTML = htmlContentToAppend
     })
-    document.getElementById("prod-list-container").innerHTML = htmlContentToAppend
+ 
