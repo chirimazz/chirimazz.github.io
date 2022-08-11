@@ -2,13 +2,8 @@ const URL="https://japceibal.github.io/emercado-api/cats_products/101.json"
 let categoriesArray = [];
 fetch(URL)
     .then(respuesta=>respuesta.json())
-    .then(data=>{
-        const div=document.querySelector("prod-list-container")
-        document.getElementById("prod-list-container").innerHTML = htmlContentToAppend
-    })
- //array donde se cargarán los datos recibidos:
-
-//función que recibe un array con los datos, y los muestra en pantalla a través el uso del DOM
+    {
+        
 function showCategoriesList(array){
     let htmlContentToAppend = "";
 
@@ -33,7 +28,7 @@ function showCategoriesList(array){
             </div>
         </div>
         `
-        document.getElementById("prod-list-container").innerHTML = htmlContentToAppend; 
+        document.getElementById("cat-list-container").innerHTML = htmlContentToAppend; 
     }
 }
 
@@ -48,7 +43,7 @@ EJECUCIÓN:
 */
 
 document.addEventListener("DOMContentLoaded", function(e){
-    getJSONData(URL).then(function(resultObj){
+    getJSONData(LIST_URL).then(function(resultObj){
         if (resultObj.status === "ok")
         {
             categoriesArray = resultObj.data;
@@ -56,3 +51,6 @@ document.addEventListener("DOMContentLoaded", function(e){
         }
     });
 });
+        
+    }
+
