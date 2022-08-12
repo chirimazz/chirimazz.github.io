@@ -3,13 +3,13 @@ let categoriesArray = [];
 fetch(URL)
     .then(respuesta=>respuesta.json())
     .then(data=>{
-        const img=document.querySelector('img');
+      
         const name=document.getElementById('name');
         const currency=document.getElementById('currency');
         const cost=document.getElementById('cost');
         const description=document.getElementById('description');
         const sold=document.getElementById('sold-count');
-        img.innerHTML=data[0].image;
+ 
         name.innerHTML=data[0].name;
         currency.innerHTML=data[0].currency;
         cost.innerHTML=data[0].cost;
