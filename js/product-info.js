@@ -9,7 +9,7 @@ fetch(URL)
         const cost=document.getElementById('cost');
         const description=document.getElementById('description');
         const sold=document.getElementById('sold-count');
-        img.innerHTML=data[0].imgScr;
+        img.innerHTML=data[0].imgSrc;
         name.innerHTML=data[0].name;
         currency.innerHTML=data[0].currency;
         cost.innerHTML=data[0].cost;
