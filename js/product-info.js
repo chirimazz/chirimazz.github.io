@@ -1,5 +1,5 @@
-const dl = document.getElementById('productos');
-const URL= 'https://japceibal.github.io/emercado-api/cats_products/101.json';
+const ul = document.getElementById('authors');
+const URL= 'https://randomuser.me/api/?results=10';
 
 function createNode(element) {
     return document.createElement(element);
@@ -11,17 +11,17 @@ function append(parent, el) {
   fetch(URL)
 .then((resp) => resp.json())
 .then(function(data) {
-    let productos = data.results;
-    return productos.map(function(producto) {
+    let authors = data.results;
+    return authors.map(function(author) {
         let li = createNode('li');
         let img = createNode('img');
         let span = createNode('span');
 
-        img.src = producto.picture.medium;
-        span.innerHTML = `${productos.products.name} ${productos.products.description}`;
+        img.src = author.picture.medium;
+        span.innerHTML = `${author.name.first} ${author.name.last}`;
         append(li, img);
         append(li, span);
-        append(dl, li);
+        append(ul, li);
     })
 })
 
