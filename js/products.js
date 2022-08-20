@@ -1,5 +1,4 @@
 
-
 let URL= 'https://japceibal.github.io/emercado-api/cats_products/101.json';
 
 let autosArray = [];
@@ -17,7 +16,7 @@ function showProductList(array){
                 <div class="col">
                     <div class="d-flex w-100 justify-content-between">
                         <div class="mb-1">
-                        <h4>`+ auto.name + auto.currency + auto.cost +`</h4> 
+                        <h4>`+ auto.name +" "+"-"+ auto.currency +" "+ auto.cost +`</h4> 
                         <p> `+ auto.description +`</p> 
                         </div>
                         <small class="text-muted">` + auto.soldCount + ` artículos</small> 
