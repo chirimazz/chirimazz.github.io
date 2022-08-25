@@ -13,6 +13,7 @@ document.getElementById('confirmado').addEventListener('click', function (){
     if(email && contraseña){
 
         window.location.href='index.html';
+        localStorage.setItem('user',email);/*guarda el elemento email en el localStorge*/
         
     }else{
 

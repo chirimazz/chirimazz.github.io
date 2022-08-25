@@ -11,4 +11,6 @@ document.addEventListener("DOMContentLoaded", function(){
         localStorage.setItem("catID", 103);
         window.location = "products.html"
     });
+
+    document.getElementById('registrado').innerHTML=localStorage.getItem('user'); /*llamar al elemento del logalSorge*/
 });
