@@ -92,9 +92,9 @@ document.addEventListener("DOMContentLoaded", function(e){
     .then(response => response.json())
     .then(data =>{
         actualesProductsArray = data.products;
-        //document.getElementById('nombreproducto').innerHTML=actualesProductsArray.name;
+        document.getElementById('nombreproducto').innerHTML=data.catName;
         showProductList(actualesProductsArray);
-        //sortAndShowProducts(ORDER_ASC_BY_NAME,data.products);
+        
     })
     document.getElementById("sortAsc").addEventListener("click", function(){
         sortAndShowProducts(ORDER_ASC_BY_COST);
