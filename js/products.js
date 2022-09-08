@@ -7,6 +7,12 @@ let actualesProductsArray = [];
 let currentSortCriteria = undefined;
 let minCount = undefined;
 let maxCount = undefined;
+
+
+function setProdID(id) {
+    localStorage.setItem("prodID",id);
+    window.location = "product-info.html"
+}
 function showProductList(){
     let htmlContentToAppend = "";
 
@@ -17,7 +23,7 @@ function showProductList(){
              ((maxCount == undefined) || (maxCount != undefined && parseInt(product.cost) <= maxCount))){
         
         htmlContentToAppend += `
-        <div class="list-group-item list-group-item-action">
+        <div onclick="setProdID(${product.id})"class="list-group-item list-group-item-action">
             <div class="row">
                 <div class="col-3">
                     <img src="` + product.image + `" alt="product image" class="img-thumbnail">
