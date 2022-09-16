@@ -31,3 +31,55 @@ document.addEventListener("DOMContentLoaded", function(e){
         
     }});
 });
+
+
+
+document.addEventListener("DOMContentLoaded", function(e){
+    fetch(comentURL)
+    .then(resp => resp.json())
+    .then(dato => {
+      let comments = dato;
+      mostrarComents(comments);
+    })
+});
+
+
+function mostrarComents(comments){
+    
+        for(let i = 0; i < comments.length; i++){ 
+            let coment="";
+            let info = comments[i];
+           
+            coment+=`
+            <div class="list-group-item list-group-item-action">
+            <div class="row">
+            <div class="col">
+            <p><strong>${info.user}</strong> -- ${info.dateTime} --${stars(info.score)} -- </p>
+         
+      
+            <p>${info.description}</p>
+            </div>
+            </div>
+            
+        
+            </div>`
+        
+        
+        
+        document.getElementById("comments").innerHTML += coment;
+        
+    }
+};
+    
+       function stars(cantidad){
+            let starHTML="";
+        
+            for( let i=0; 1<cantidad; i++){
+                starHTML+=`<span class="fa fa-star checked"></span>`
+            }
+            for( let i=cantidad; i<5; i++){
+                starHTML+='<span class="fa fa-star"></span>'
+            }
+            return starHTML;
+        
+        };
