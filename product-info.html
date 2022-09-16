@@ -69,22 +69,25 @@
     <div id="comments" >
       <h4>Comentarios</h4>
     </div>
-    
-    <div>
+<form>
+    <div class="container row justify-content-evenly col-4">
       <h5>Comentar</h5>
-      <p>Tu opinión</p>
-      <textarea name="texto" rows="4" cols="20"></textarea>
-      <p>Tu puntuación</p>
-      <select name="menu">
+      <label>Tu comentario</label><br>
+      <textarea name="texto" rows="4" cols="20"></textarea><br>
+     
+      <label class="col-3 m-4">Tu puntuación</label><br>
+      
+      <select class="m-4 col-3" name="menu">
         <option>1</option>
         <option>2</option>
         <option>3</option>
         <option>4</option>
         <option>5</option>
-      </select>
-      <input type="submit" value="Enviar">
+      </select><br>
+    
+      <button class="btn btn-primary" type="submit">Enviar</button>
     </div>
-
+</form>
     
   </main>
   <footer class="text-muted">
