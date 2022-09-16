@@ -1,5 +1,7 @@
 //realizar una funcion para traer elementos del JSON
-URL=PRODUCT_INFO_URL+localStorage.getItem('prodID')+EXT_TYPE;
+let URL=PRODUCT_INFO_URL+localStorage.getItem('prodID')+EXT_TYPE;
+let comentURL=PRODUCT_INFO_COMMENTS_URL+localStorage.getItem('prodID')+EXT_TYPE
+
 
 let producto={}
 document.addEventListener("DOMContentLoaded", function(e){
