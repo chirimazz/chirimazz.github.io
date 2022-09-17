@@ -1,28 +1,26 @@
-//realizar una funcion para traer elementos del JSON
-let URL=PRODUCT_INFO_URL+localStorage.getItem('prodID')+EXT_TYPE;
-let comentURL=PRODUCT_INFO_COMMENTS_URL+localStorage.getItem('prodID')+EXT_TYPE
-
-let producto={}
+let producto={};
 document.addEventListener("DOMContentLoaded", function(e){
-    fetch(URL)
+    fetch(PRODUCT_INFO_URL+localStorage.getItem('prodID')+EXT_TYPE)
     .then(response => response.json())
     .then(data =>{
         producto = data;
-        
-        document.getElementById('nombreProduct').innerHTML = producto.name;
+      
+       
+       document.getElementById('nombreProduct').innerHTML = producto.name;
         document.getElementById('precioProduct').innerHTML = producto.cost;
         document.getElementById('descriptionProduct').innerHTML = producto.description;
         document.getElementById('catProduct').innerHTML = producto.category;
-        document.getElementById('soldCount').innerHTML = producto.soldCount;
+       document.getElementById('soldCount').innerHTML = producto.soldCount;
       mostrarImg();
 
       
 
-      fetch(comentURL)
+      fetch(PRODUCT_INFO_COMMENTS_URL+localStorage.getItem('prodID')+EXT_TYPE)
       .then(resp => resp.json())
       .then(dato => {
         let comments = dato;
-        mostrarComents(comments);
+       mostrarComents(comments);
+       
       })
 
 
@@ -52,10 +50,10 @@ function mostrarComents(comments){
         let info = comments[i];
        
         coment+=`
-        <div class="list-group-item list-group-item-action">
+        <div class=" list-group-item list-group-item-action">
         <div class="row">
         <div class="col">
-        <p><strong>${info.user}</strong> -- ${info.dateTime}--${stars(info.score)} </p>
+        <p><strong>${info.user}</strong> -- ${info.dateTime} -${stars(info.score)}</p>
      
   
         <p>${info.description}</p>
@@ -72,15 +70,18 @@ function mostrarComents(comments){
     }
 };
 
+
    function stars(cantidad){
-        let starHTML="";
+        let star="";
     
         for( let i=0; i<cantidad; i++){
-            starHTML+=`<span class="fa fa-star checked"></span>`
+            star+=`<span class="fa fa-star checked"></span>`
         }
         for( let i=cantidad; i<5; i++){
-            starHTML+='<span class="fa fa-star"></span>'
+            star+='<span class="fa fa-star"></span>'
         }
-        return starHTML;
+        return star;
     
     }
+
+
