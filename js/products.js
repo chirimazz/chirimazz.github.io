@@ -1,4 +1,4 @@
-let URL= PRODUCTS_URL+localStorage.getItem('catID')+EXT_TYPE;
+
 const ORDER_ASC_BY_COST = "$--$$";
 const ORDER_DESC_BY_COST = "$$--$";
 const ORDER_BY_PROD_COUNT = "Cant.";
@@ -94,7 +94,7 @@ function sortProducts(criteria, array){
 
 
 document.addEventListener("DOMContentLoaded", function(e){
-    fetch(URL)
+    fetch(PRODUCTS_URL+localStorage.getItem('catID')+EXT_TYPE)
     .then(response => response.json())
     .then(data =>{
         actualesProductsArray = data.products;
