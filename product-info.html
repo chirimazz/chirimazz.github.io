@@ -72,24 +72,30 @@
     <div class="container" id="comments" >
       <h4>Comentarios</h4>
     </div>
+
+
+
+<!-- formulario para comentarios-->
 <form class="md-4 m-4 container">
-    <div class="container row justify-content-evenly col-4 ">
-      <h5>Comentar</h5>
-      <label>Tu opinión</label><br>
-      <textarea name="texto" rows="4" cols="20"></textarea><br>
-     
-      <label class="col-3 m-4">Tu puntuación</label>
-      
-      <select class="m-4 col-3" name="menu">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-      </select><br>
+  <div class="container row justify-content-evenly col-5 ">
+    <h5>Comentar</h5>
+    <label>Tu opinión</label><br>
+    <textarea name="texto" class="" id="opinion"></textarea><br>
+  </div>
+    <div class="">
+  <label class="col-3 m-4">Tu puntuación</label>
     
-      <button class="btn btn-primary" type="submit">Enviar</button>
+    <select class=" m-3 col" name="menu" id="score">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select><br>
     </div>
+    <button type="button" class="btn btn-primary m-4" id="enviar">Enviar</button>
+  
+  </div>
 </form>
     
   </main>
