@@ -44,7 +44,7 @@ function mostrarImg(){
 
 
 function mostrarComents(comments){
-//let comments=[];
+
     for(let i = 0; i < comments.length; i++){ 
         let coment="";
         let info = comments[i];
