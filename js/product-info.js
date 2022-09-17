@@ -55,7 +55,7 @@ function mostrarComents(comments){
         <div class="list-group-item list-group-item-action">
         <div class="row">
         <div class="col">
-        <p><strong>${info.user}</strong> -- ${info.dateTime}-- </p>
+        <p><strong>${info.user}</strong> -- ${info.dateTime}--${stars(info.score)} </p>
      
   
         <p>${info.description}</p>
@@ -75,7 +75,7 @@ function mostrarComents(comments){
    function stars(cantidad){
         let starHTML="";
     
-        for( let i=0; 1<cantidad; i++){
+        for( let i=0; i<cantidad; i++){
             starHTML+=`<span class="fa fa-star checked"></span>`
         }
         for( let i=cantidad; i<5; i++){
