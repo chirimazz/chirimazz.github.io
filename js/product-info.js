@@ -4,14 +4,9 @@ document.addEventListener("DOMContentLoaded", function(e){
     .then(response => response.json())
     .then(data =>{
         producto = data;
-      
-       
-       document.getElementById('nombreProduct').innerHTML = producto.name;
-        document.getElementById('precioProduct').innerHTML = producto.cost;
-        document.getElementById('descriptionProduct').innerHTML = producto.description;
-        document.getElementById('catProduct').innerHTML = producto.category;
-       document.getElementById('soldCount').innerHTML = producto.soldCount;
+    showProduct();
       mostrarImg();
+      productRelated();
 
       
 
@@ -28,6 +23,32 @@ document.addEventListener("DOMContentLoaded", function(e){
     })
 
 });    
+
+function showProduct(){
+    let infoProduct=""
+infoProduct+=`<div>
+
+<h2>${producto.name}</h2>
+<h5 class="mb-1"><strong>Precio</strong>
+        <p >USD - <span>${producto.cost}</span></p>
+      </h5>
+      <h5 class="mb-1"><strong>Descripción</strong>
+        <p >${producto.description}</p>
+      </h5>
+      <h5 class="mb-1"><strong>Categoría</strong>
+        <p >${producto.category}</p>
+      </h5>
+      <h5 class="mb-1"><strong>Cantidad de Vendidos</strong>
+        <p>${producto.soldCount}</p>
+      </h5>
+      <h5 class="mb-1"><strong>Imágenes ilustrativas</strong></h5>
+
+
+</div>`
+document.getElementById('nombreProduct').innerHTML = infoProduct;
+
+
+}
 
 function mostrarImg(){
     let agregarImagenes="";
