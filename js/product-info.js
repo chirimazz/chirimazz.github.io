@@ -84,4 +84,34 @@ function mostrarComents(comments){
     
     }
 
+    
+    function setProdIDrelated(id) {
+        
+        localStorage.setItem("prodID",id);
+        window.location = "product-info.html"
+    }
+
+    function productRelated(){
+        let agregarProduct="";
+        for(let i = 0; i <producto.relatedProducts.length; i++){ 
+             var related ="";
+             if(producto.images[i]){
+                 related=producto.relatedProducts[i]
+             };
+           agregarProduct+=`
+           <div onclick="setProdIDrelated(${related.id})"class=" list-group-item list-group-item-action">
+           <div class="mb-1">
+           <h4>${related.name}</h4>
+           
+           <div class="col-3">
+                    <img src="` + related.image + `" alt="product image" class="img-thumbnail">
+                </div>
+            </div>
+            </div>`
+                
+    
+           document.getElementById("productRelated").innerHTML = agregarProduct;
+        }
+    };
+
 
