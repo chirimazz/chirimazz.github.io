@@ -14,3 +14,12 @@ document.addEventListener("DOMContentLoaded", function(){
 
     document.getElementById('registrado').innerHTML=localStorage.getItem('user'); /*llamar al elemento del logalSorge*/
 });
+
+function cerrarSesion(){
+
+    localStorage.removeItem("user");
+    window.location = "login.html";
+    //document.getElementById('registrado').innerHTML="Ingresar";
+
+
+}
