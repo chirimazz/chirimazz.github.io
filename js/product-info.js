@@ -1,28 +1,29 @@
-let producto={};
-document.addEventListener("DOMContentLoaded", function(e){
-    fetch(PRODUCT_INFO_URL+localStorage.getItem('prodID')+EXT_TYPE)
-    .then(response => response.json())
-    .then(data =>{
-        producto = data;
-    showProduct();
+let producto=[];
+document.addEventListener("DOMContentLoaded", async function(e){
+    try{
+const response = await fetch(PRODUCT_INFO_URL+localStorage.getItem('prodID')+EXT_TYPE);
+const resp= await fetch(PRODUCT_INFO_COMMENTS_URL+localStorage.getItem('prodID')+EXT_TYPE);
+const dato= await resp.json();
+const data= await response.json();
+producto = data
+showProduct();
       mostrarImg();
       productRelated();
-
-      
-
-      fetch(PRODUCT_INFO_COMMENTS_URL+localStorage.getItem('prodID')+EXT_TYPE)
-      .then(resp => resp.json())
-      .then(dato => {
-        let comments = dato;
+      let comments = dato;
        mostrarComents(comments);
-       
-      })
+
+    }catch(error){
+        console.log(error)
+
+    }
 
 
         
-    })
+    });    
 
-});    
+
+        
+ 
 
 function showProduct(){
     let infoProduct=""
