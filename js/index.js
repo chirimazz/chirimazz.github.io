@@ -17,9 +17,9 @@ document.addEventListener("DOMContentLoaded", function(){
 
 function cerrarSesion(){
 
-    localStorage.removeItem("user");
+    localStorage.setItem("user","Ingresar");
     window.location = "login.html";
-    //document.getElementById('registrado').innerHTML="Ingresar";
+   
 
 
 }
