@@ -106,12 +106,14 @@ function mostrarComents(comments){
     
     }
 
-    
+    //function que me dirige a un producto relacionado
     function setProdIDrelated(id) {
         
         localStorage.setItem("prodID",id);
         window.location = "product-info.html"
     }
+
+//function que me muestra el producto relacionado
 
     function productRelated(){
         let agregarProduct="";
