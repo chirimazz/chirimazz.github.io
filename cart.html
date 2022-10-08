@@ -29,21 +29,67 @@
           <li class="nav-item">
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
-          <li class="nav-item">
-            <li class="nav-item">
-              <a class="nav-link" href="login.html" id="registrado">Ingresar</a><!--cambio-->
-            </li>
+          <li class="nav-item" >
+            <a class="nav-link" href="login.html"id="registrado"></a>
+          </li>
           </li>
         </ul>
       </div>
     </div>
   </nav>
   <main>
+   
     <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
+      <div>
+        <h2 class="mx-auto col-md-4 p-3 " style="width: 400px;">Carrito de compras</h2>
+        <h5>Articulos a comprar</h5>
       </div>
+      <div id="compra"></div>
+    <div id="envio">
+
+      <div class="container">
+        <h5>Tipo de envío</h5>
+    
+      
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+          <label class="form-check-label" for="flexRadioDefault1">
+            Premium 2 a 5 días(15%)
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+          <label class="form-check-label" for="flexRadioDefault2">
+            Express 5 a 8 días (7%)
+          </label>
+        </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+            <label class="form-check-label" for="flexRadioDefault1">
+              Standar 12 a 15 días (5%)
+            </label>
+          </div>
+
+          <div class="input-group input-group-sm mb-3">
+            
+            <input type="text" class="form-control" aria-label="calle" aria-describedby="inputGroup-sizing-sm">
+            <input type="text" class="form-control" aria-label="calle" aria-describedby="inputGroup-sizing-sm">
+          </div>
+          <div class="input-group input-group-sm mb-3">
+            
+            <input type="text" class="form-control" aria-label="calle" aria-describedby="inputGroup-sizing-sm">
+            </div>
+
+          
+        </div>
+        
+
+
+
+      </form>
     </div>
+    </div>
+
   </main>
   <footer class="text-muted">
     <div class="container">
@@ -66,6 +112,7 @@
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
   <script src="js/cart.js"></script>
+  
 </body>
 
 </html>
