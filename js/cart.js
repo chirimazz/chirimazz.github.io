@@ -38,7 +38,7 @@ showcartElement();
       <td>${cartElement.articles[0].name}</td>
       <td>${precioPorUni}</td>
       <td><input type="number" value-1 id="cantArticulo" onchange="subtotal()"></td>
-      <td id="subtotal">${precioPorUni}</td>
+      <td id="subtotal"><span>USD</span> ${precioPorUni}</td>
     </tr>
    
   </tbody>
@@ -52,6 +52,6 @@ document.getElementById('compra').innerHTML=listaCart;
 
 function subtotal(){
     let precioPorUni = cartElement.articles[0].unitCost;
-    document.getElementById("subtotal").innerHTML = precioPorUni * document.getElementById("cantArticulo").value;
+    document.getElementById("subtotal").innerHTML = cartElement.articles[0].currency +" "+ precioPorUni * document.getElementById("cantArticulo").value;
 }
     
