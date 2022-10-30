@@ -76,18 +76,31 @@ function showCosto(){
   
 
   costos=`
-  <h5>Costos</h5>
-  <br>
-  <div class="row">
-  <div class="fs-6 text col-8">Subtotal</div>
-  <div class="fs-6 text-end col-4" id="sumSubtotal"><span>USD</span> </div>
 
-  <div class="fs-6 text col-8">Costo de envío</div>
-  <div class=" fs-6 text-end col-4" id="costo"><span>USD</span></div>
- 
-  <div class="fs-6 text col-8">Total</div>
-  <div class="fs-6 text-end col-4"  >USD<span id="total"></span> </div>
-</div>
+
+
+<ul class="list-group mb-3">
+          <li class="list-group-item d-flex justify-content-between lh-sm">
+            <div>
+              <h6 class="my-0">Subtotal</h6>
+              <small class="text-muted"></small>
+            </div>
+            <span class="text-muted" id="sumSubtotal">$</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between lh-sm">
+            <div>
+              <h6 class="my-0">Costo de envío</h6>
+              <small class="text-muted"></small>
+            </div>
+            <span class="text-muted"id="costo">$</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between lh-sm">
+            <div>
+              <h6 class="my-0">Total $</h6>
+              <small class="text-muted"></small>
+            </div>
+           <span class="text-muted" id="total"></span>
+          </li>
 `
 
 document.getElementById('costos').innerHTML= costos;
@@ -129,7 +142,7 @@ total()
 
 
 
-  return document.getElementById("total").innerHTML= subTotal+costoEnvio
+  return document.getElementById("total").innerHTML=subTotal+costoEnvio
 
 
 
@@ -164,11 +177,9 @@ function validarCampos(){
 
   let tarjeta=document.getElementById("tarjetaDeCrédito");
   let cuenta=document.getElementById("transferencia");
-  let inputCant= document.getElementById("cantArticulo");
+  let inputCant= document.getElementById("cantArticulo").value;
   let valid = true
-  let premium = document.getElementById("15%")
-  let express = document.getElementById("7%")
-  let standard = document.getElementById("5%")
+
 
   if(!tarjeta.checked&&!cuenta.checked ){
     document.getElementById("buttonFormaDePago").classList.add("link-danger");
@@ -183,16 +194,39 @@ function validarCampos(){
      document.getElementById("buttonFormaDePago").classList.remove("link-danger");
      document.getElementById("smallSeleccionado").innerHTML="Se ha seleccionado forma de pago";
 }
-   
-  
- if(!premium.checked && !express.checked && !standard.checked){
-   valid=false
- }
+
+
+
+
  if(inputCant.value<=0){
-  valid=false
- }
+  inputCant.setCustomValidity(".is-invalid")}
+
+ 
  return valid
 
+}
+
+
+function validarCostoEnvio(){
+
+
+  let premium = document.getElementById("15%")
+  let express = document.getElementById("7%")
+  let standard = document.getElementById("5%")
+
+
+  if(!premium.checked && !express.checked && !standard.checked){
+    premium.setCustomValidity("#invalid-feedback")
+    express.setCustomValidity("#invalid-feedback")
+    standard.setCustomValidity("#invalid-feedback")
+  
+     valid=false
+   }else{
+    premium.setCustomValidity("")
+    express.setCustomValidity("")
+    standard.setCustomValidity("")
+   }
+return valid
 }
 
 
@@ -213,14 +247,19 @@ function validación() {
   Array.prototype.slice.call(forms)
     .forEach(function (form) {
       form.addEventListener('submit', function (event) {
-        if (!form.checkValidity()&&!validarCampos()){
-          event.preventDefault()
-          event.stopPropagation()
+        if (!form.checkValidity()&&!validarCampos()&&!validarCostoEnvio()){
+          event.preventDefault();
+          event.stopPropagation();
         }
 
-        form.classList.add('was-validated')
-      }, false)
+        document.body.classList.add('was-validated');
+        
+        form.classList.add('was-validated');
+          
+      },
+       false)
     })
+    validarCostoEnvio()
     validarCampos()
     alerta()
 };
@@ -244,9 +283,9 @@ const alert = (message, type) => {
 }
 
 const alertTrigger = document.getElementById("btnFinalizar")
-if (alertTrigger ) {
+
+if (alertTrigger) {
   alertTrigger.addEventListener('click', () => {
     alert('Finalizó su compra con éxito!', 'success')
 })}}
 
-    
