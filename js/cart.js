@@ -226,7 +226,6 @@ function validarCostoEnvio(){
     express.setCustomValidity("")
     standard.setCustomValidity("")
    }
-return valid
 }
 
 
