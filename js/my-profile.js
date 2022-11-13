@@ -76,6 +76,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     //cargar imagen de perfil
+    document.getElementById("imgPreview").setAttribute("src", "img/img_perfil.png");
 
     document.getElementById("myFileInput").addEventListener("change", function () { //esperando un cambio en el input para cargar la imagen
 
@@ -92,10 +93,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (recentImgDataUrl) {
             document.getElementById("imgPreview").setAttribute("src", recentImgDataUrl);
-        } else {
-            document.getElementById("imgPreview").setAttribute("src", "img/img_perfil.png");
         }
-
     })
 
 
