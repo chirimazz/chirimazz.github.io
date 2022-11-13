@@ -39,3 +39,45 @@ let getJSONData = function(url){
         return result;
     });
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+//funcion para iniciar sesion y mostrar menu desplegable
+let usuario = localStorage.getItem('user')
+function iniciarSesion() {
+    if (localStorage.getItem('user') == "") {
+        document.getElementById('registrado').innerHTML = "Ingresar";
+    } else {
+        document.getElementById("registrado").innerHTML = `
+            <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+        `+ usuario + `
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+        <li><a class="dropdown-item" href="cart.html">Mi carrito</a></li>
+        <li><a class="dropdown-item" href= "my-profile.html">Mi perfil</a></li>
+        <li><a class="dropdown-item" href="login.html" onclick = "cerrarSesion()" id="cerrarSesion">Cerrar Sesión</a></li>
+      </ul>
+    </div>`;
+    }
+ 
+}
+
+
+
+iniciarSesion()
+
+})
+
+// funcion para cerrar sesion e eliminar elementos del almacenamiento local
+function cerrarSesion() {
+
+  localStorage.setItem("user","");
+  window.location = "login.html";
+  localStorage.removeItem("name")
+  localStorage.removeItem("lastname")
+  localStorage.removeItem("SecondLastname")
+  localStorage.removeItem("telphone")
+  localStorage.removeItem("profileImage")
+
+
+}
