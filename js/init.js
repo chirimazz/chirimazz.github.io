@@ -76,6 +76,7 @@ function cerrarSesion() {
   localStorage.removeItem("name")
   localStorage.removeItem("lastname")
   localStorage.removeItem("SecondLastname")
+  localStorage.removeItem("SecondName")
   localStorage.removeItem("telphone")
   localStorage.removeItem("profileImage")
 
